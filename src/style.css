@@ -53,6 +53,21 @@ form {
     margin-bottom: 20px;
 }
 
+.col-5 {
+    text-align: center;
+}
+
+.btn-sm {
+    line-height: 20px;
+    margin: 15px 5px;
+}
+
+.weather-icon {
+    height: 70px;
+    width: 70px;
+    margin-right: 10px;
+}
+
 .weather-temperature img {
     margin-right: 5px;
     height: 64px;
