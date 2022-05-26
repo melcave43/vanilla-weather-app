@@ -1,5 +1,4 @@
-function formatDate(timestamp) {
-  let date = new Date(timestamp);
+function formatDate(date) {
   let hours = date.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
@@ -37,7 +36,6 @@ function displayWeatherCondition(response) {
     response.data.weather[0].main;
 }
 
-
 function search(event) {
   event.preventDefault();
   let cityElement = document.querySelector("#city");
@@ -45,7 +43,7 @@ function search(event) {
   cityElement.innerHTML = cityInput.value;
   let url = `https://api.openweathermap.org/data/2.5/weather?lat=${cityElement}&units=metric&appid=${apiKey}`;
 
-    axios.get(url).then(showCity);
+  axios.get(url).then(showCity);
 }
 
 function searchCity(city) {
@@ -62,9 +60,7 @@ function handleSubmit(event) {
 
 function searchLocation(position) {
   let apiKey = "20248bc80b15b038cd2f9d5f9fc0f75a";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${
-    position.coords.latitude
-  }&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
 
   axios.get(apiUrl).then(displayWeatherCondition);
 }
@@ -73,7 +69,6 @@ function getCurrentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
-
 
 function convertToFahrenheit(event) {
   event.preventDefault();
@@ -87,10 +82,8 @@ function convertToCelsius(event) {
   temperatureElement.innerHTML = 19;
 }
 
-
 let dateElement = document.querySelector("#date");
 let currentTime = new Date();
-
 dateElement.innerHTML = formatDate(currentTime);
 
 let searchForm = document.querySelector("#search-form");
@@ -101,7 +94,6 @@ fahrenheitLink.addEventListener("click", convertToFahrenheit);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", convertToCelsius);
-
 
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
