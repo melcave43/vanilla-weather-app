@@ -19,32 +19,111 @@
       <div class="weather-app-wrapper">
         <div class="weather-app">
           <div class="overview">
-            <h1>New Jersey</h1>
-            <ul>
-              <li>Sunday 11:48</li>
-              <li>Partly Cloudy</li>
-            </ul>
-          </div>
-          <div class="row">
-            <div class="col-6">
-              <div class="clearfix weather-temperature">
+            <div class="row">
+              <div class="col">
+                <button type="button" class="btn btn-outline-primary btn-sm">
+                  London
+                </button>
+                <button type="button" class="btn btn-outline-primary btn-sm">
+                  Paris
+                </button>
+                <button type="button" class="btn btn-outline-primary btn-sm">
+                  Chicago
+                </button>
+                <button type="button" class="btn btn-outline-primary btn-sm">
+                  Tokyo
+                </button>
+
+                <br />
+
+                <form class="search-form" id="search-form">
+                  <input
+                    type="search"
+                    placeholder="Enter a city"
+                    id="city-input"
+                  />
+                  <input
+                    type="submit"
+                    value="Search"
+                    class="btn btn-outline-primary"
+                  />
+                  <input
+                    type="submit"
+                    value="Current"
+                    class="btn btn-outline-success"
+                  />
+                </form>
+              </div>
+              <br />
+              <h1 id="city">New Jersey</h1>
+              <ul>
+                <li id="date">Sunday 11:48</li>
+                <li id="description">Partly Cloudy</li>
+              </ul>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <div class="clearfix weather-temperature">
+                  <img
+                    src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+                    alt="partlyCloudy"
+                    class="float-left"
+                  />
+                  <div class="float-left">
+                    <strong id="temperature">12</strong
+                    ><span class="units">°C | <a href="#">°F</a></span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6">
+                <ul>
+                  <li>Precipitation: 15%</li>
+                  <li>Humidity:<span id="humidity"></span> 53%</li>
+                  <li>Wind: 13km/h</li>
+                </ul>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-2">
+                <span class="days"> SAT</span>
+                <img
+                  src="https://ssl.gstatic.com/onebox/weather/48/sunny_s_cloudy.png"
+                  alt="sunnyCloudy icon"
+                />
+                <span class="climate"> 32℃</span>
+              </div>
+              <div class="col-2">
+                <span class="days"> SUN</span>
                 <img
                   src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
                   alt="partlyCloudy"
-                  class="float-left"
                 />
-                <div class="float-left">
-                  <strong>12</strong
-                  ><span class="units">°C | <a href="#"></a> °F </span>
-                </div>
+                <span class="climate"> 29℃</span>
               </div>
-            </div>
-            <div class="col-6">
-              <ul>
-                <li>Precipitation: 15%</li>
-                <li>Humidity: 53%</li>
-                <li>Wind: 13km/h</li>
-              </ul>
+              <div class="col-2">
+                <span class="days"> MON</span>
+                <img
+                  src="https://ssl.gstatic.com/onebox/weather/48/cloudy.png"
+                  alt="Cloudy icon"
+                />
+                <span class="climate"> 20℃</span>
+              </div>
+              <div class="col-2">
+                <span class="days"> TUES</span>
+                <img
+                  src="https://ssl.gstatic.com/onebox/weather/48/rain_light.png"
+                  alt="Rainy icon"
+                />
+                <span class="climate"> 18℃</span>
+              </div>
+              <div class="col-2">
+                <span class="days"> WED</span>
+                <img
+                  src="https://ssl.gstatic.com/onebox/weather/48/thunderstorms.png"
+                  alt="Rainy icon"
+                />
+                <span class="climate"> 22℃</span>
+              </div>
             </div>
           </div>
         </div>

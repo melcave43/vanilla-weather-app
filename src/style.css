@@ -30,6 +30,12 @@ li:first-letter {
     text-transform: capitalize;
 }
 
+form {
+    line-height: 30px;
+    border-radius: 10px;
+    text-align: center;
+}
+
 .weather-app-wrapper {
     max-width: 600px;
     margin: 30px auto;
@@ -57,7 +63,7 @@ li:first-letter {
     color: rgb(105, 5, 205);
     font-size: 54px;
     line-height: 1;
-    font-weight: 400;
+    font-weight: 200;
 }
 
 .weather-temperature .units {
