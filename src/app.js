@@ -83,6 +83,9 @@ function convertToCelsius(event) {
   temperatureElement.innerHTML = 19;
 }
 
+let londonElement = document.querySelector("#london");
+londonElement.addEventListener("click", searchCity);
+
 let dateElement = document.querySelector("#date");
 let currentTime = new Date();
 dateElement.innerHTML = formatDate(currentTime);
