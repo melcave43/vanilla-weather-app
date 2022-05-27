@@ -52,6 +52,7 @@
                     type="submit"
                     value="Current"
                     class="btn btn-outline-success"
+                    id="current-location-button"
                   />
                 </form>
               </div>
@@ -71,8 +72,11 @@
                     class="float-left"
                   />
                   <div class="float-left">
-                    <strong id="temperature">12</strong
-                    ><span class="units">°C | <a href="#">°F</a></span>
+                    <strong id="temperature">12</strong>
+                    <span class="units">
+                      <a href="#" id="celsius-link">°C</a>° |
+                      <a href="#" id="fahrenheit-link">°F</a></span
+                    >
                   </div>
                 </div>
               </div>
