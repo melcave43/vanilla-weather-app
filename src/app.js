@@ -22,6 +22,75 @@ function formatDate(date) {
   return `${days[dayIndex]} ${hours}:${minutes}`;
 }
 
+function displayForecast() {
+    let forecastElement = document.querySelector("#forecast");
+
+    forecastElement.innerHTML = "Forecast";
+    let forecastHTML = `<div class="row justify-content-center">`;
+let days = ["Sat", "Sun", "Mon", "Tues", "Wed"];
+days.forEach(function(day) {
+forecastHTML = 
+forecastHTML +
+`
+    <div class="col-2">
+                <span class="days">${day}</span>
+                <img
+                  src="https://ssl.gstatic.com/onebox/weather/48/sunny_s_cloudy.png"
+                  alt="sunnyCloudy icon"
+                />
+                <span class="climate-max"> 32℃</span>
+                <span class="weather-forecast-temperature-min"> 27℃</span>
+              </div>
+              <div class="col-2">
+                <span class="days">${day}</span>
+                <img
+                  src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+                  alt="partlyCloudy"
+                />
+                <span class="climate-max"> 29℃</span>
+                <span class="weather-forecast-temperature-min"> 21℃</span>
+              </div>
+              <div class="col-2">
+                <span class="days">${day}</span>
+                <img
+                  src="https://ssl.gstatic.com/onebox/weather/48/cloudy.png"
+                  alt="Cloudy icon"
+                />
+                <span class="climate-max"> 20℃</span>
+                <span class="weather-forecast-temperature-min"> 12℃</span>
+              </div>
+              <div class="col-2">
+                <span class="days">${day}</span>
+                <img
+                  src="https://ssl.gstatic.com/onebox/weather/48/rain_light.png"
+                  alt="Rainy icon"
+                />
+                <span class="climate-max"> 18℃</span>
+                <span class="weather-forecast-temperature-min"> 12℃</span>
+              </div>
+              <div class="col-2">
+                <span class="days">${day}</span>
+                <img
+                  src="https://ssl.gstatic.com/onebox/weather/48/thunderstorms.png"
+                  alt="Rainy icon"
+                />
+                <span class="climate-max"> 22℃</span>
+                <span class="weather-forecast-temperature-min"> 19℃</span>
+              </div>
+            </div>
+          </div>
+          `;
+});
+
+forecastHTML = forecastHTML + `</div>`;
+forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+    console.log(coordinates);
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`
+}
+
 function displayWeatherCondition(response) {
   document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector("#temperature").innerHTML = Math.round(
@@ -83,6 +152,7 @@ function convertToCelsius(event) {
   temperatureElement.innerHTML = 19;
 }
 
+
 let londonElement = document.querySelector("#london");
 londonElement.addEventListener("click", searchCity);
 
@@ -101,5 +171,7 @@ celsiusLink.addEventListener("click", convertToCelsius);
 
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
+
+
 
 searchCity("New York");
