@@ -23,72 +23,35 @@ function formatDate(date) {
 }
 
 function displayForecast() {
-    let forecastElement = document.querySelector("#forecast");
+  let forecastElement = document.querySelector("#forecast");
 
-    forecastElement.innerHTML = "Forecast";
-    let forecastHTML = `<div class="row justify-content-center">`;
-let days = ["Sat", "Sun", "Mon", "Tues", "Wed"];
-days.forEach(function(day) {
-forecastHTML = 
-forecastHTML +
-`
-    <div class="col-2">
-                <span class="days">${day}</span>
-                <img
-                  src="https://ssl.gstatic.com/onebox/weather/48/sunny_s_cloudy.png"
-                  alt="sunnyCloudy icon"
-                />
-                <span class="climate-max"> 32℃</span>
-                <span class="weather-forecast-temperature-min"> 27℃</span>
-              </div>
-              <div class="col-2">
-                <span class="days">${day}</span>
-                <img
-                  src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-                  alt="partlyCloudy"
-                />
-                <span class="climate-max"> 29℃</span>
-                <span class="weather-forecast-temperature-min"> 21℃</span>
-              </div>
-              <div class="col-2">
-                <span class="days">${day}</span>
-                <img
-                  src="https://ssl.gstatic.com/onebox/weather/48/cloudy.png"
-                  alt="Cloudy icon"
-                />
-                <span class="climate-max"> 20℃</span>
-                <span class="weather-forecast-temperature-min"> 12℃</span>
-              </div>
-              <div class="col-2">
-                <span class="days">${day}</span>
-                <img
-                  src="https://ssl.gstatic.com/onebox/weather/48/rain_light.png"
-                  alt="Rainy icon"
-                />
-                <span class="climate-max"> 18℃</span>
-                <span class="weather-forecast-temperature-min"> 12℃</span>
-              </div>
-              <div class="col-2">
-                <span class="days">${day}</span>
-                <img
-                  src="https://ssl.gstatic.com/onebox/weather/48/thunderstorms.png"
-                  alt="Rainy icon"
-                />
-                <span class="climate-max"> 22℃</span>
-                <span class="weather-forecast-temperature-min"> 19℃</span>
-              </div>
-            </div>
-          </div>
-          `;
-});
+  forecastElement.innerHTML = "Forecast";
+  let forecastHTML = `<div class="row justify-content-center">`;
+  let days = ["Sat", "Sun", "Mon", "Tues", "Wed"];
+  days.forEach(function (dayForecast) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2">
+        <span class="days">${dayForecast}</span>
+        <img
+          src="https://ssl.gstatic.com/onebox/weather/48/sunny_s_cloudy.png"
+          alt="sunnyCloudy icon"
+        />
+        <span class="climate-max"> ${day.temp.max}° </span>
+        <span class="weather-forecast-temperature-min"> ${dayForecast.temp.min}° </span>
+      </div>`;
+  });
 
-forecastHTML = forecastHTML + `</div>`;
-forecastElement.innerHTML = forecastHTML;
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
 
 function getForecast(coordinates) {
-    console.log(coordinates);
-    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`
+  console.log(coordinates);
+  let apiKey = "20248bc80b15b038cd2f9d5f9fc0f75a";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function displayWeatherCondition(response) {
@@ -103,6 +66,8 @@ function displayWeatherCondition(response) {
   );
   document.querySelector("#description").innerHTML =
     response.data.weather[0].main;
+
+  getForecast(response.data.coord);
 }
 
 function search(event) {
@@ -114,6 +79,7 @@ function search(event) {
 
   axios.get(url).then(showCity);
 }
+
 
 function searchCity(city) {
   let apiKey = "20248bc80b15b038cd2f9d5f9fc0f75a";
@@ -138,6 +104,7 @@ function getCurrentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
+
 
 function convertToFahrenheit(event) {
   event.preventDefault();
