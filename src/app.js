@@ -23,6 +23,7 @@ function formatDate(date) {
 }
 
 function displayForecast() {
+    let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
 
   forecastElement.innerHTML = "Forecast";
@@ -32,12 +33,12 @@ function displayForecast() {
     forecastHTML =
       forecastHTML +
       `<div class="col-2">
-        <span class="days">${dayForecast}</span>
+        <span class="days">${dayForecast.dt}</span>
         <img
           src="https://ssl.gstatic.com/onebox/weather/48/sunny_s_cloudy.png"
           alt="sunnyCloudy icon"
         />
-        <span class="climate-max"> ${day.temp.max}° </span>
+        <span class="climate-max"> ${dayForecast.temp.max}° </span>
         <span class="weather-forecast-temperature-min"> ${dayForecast.temp.min}° </span>
       </div>`;
   });
