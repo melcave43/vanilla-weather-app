@@ -11,6 +11,19 @@ h1 {
     margin-bottom: 0;
 }
 
+    h2 {
+     color: #ffffff;   
+    background-image: linear-gradient(to bottom right, #5040cf, rgb(205, 162, 247));
+    font-size: 30px;
+    font-weight: 100;
+    line-height: 30px;
+    margin-bottom: 0;
+    width: 180px;
+    border-radius: 5px;
+}
+
+
+
 ul {
     margin: 0;
     padding: 0;
