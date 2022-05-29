@@ -81,8 +81,8 @@ form {
 }
 
 .weather-icon {
-    height: 70px;
-    width: 70px;
+    height: 80px;
+    width: 80px;
     margin-right: 10px;
 }
 
@@ -130,5 +130,5 @@ form {
 }
 
 .weather-forecast-temperatures {
-    font-size: 13px;
+    font-size: 18px;
 }
