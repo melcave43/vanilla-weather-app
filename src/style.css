@@ -94,9 +94,9 @@ form {
 
 .weather-temperature strong {
     color: rgb(105, 5, 205);
-    font-size: 54px;
+    font-size: 44px;
     line-height: 1;
-    font-weight: 200;
+    font-weight: 180;
 }
 
 .weather-temperature .units {

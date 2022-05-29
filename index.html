@@ -31,6 +31,12 @@
                     id="city-input"
                   />
                   <input type="submit" value="Search" class="btn btn-primary" />
+                  <input
+                    type="submit"
+                    value="Current"
+                    class="btn btn-primary"
+                    id="current-location-button"
+                  />
                 </form>
               </div>
               <br />
@@ -44,9 +50,12 @@
               <div class="col-6">
                 <div class="clearfix weather-temperature">
                   <img
-                    src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-                    alt="partlyCloudy"
+                    src="http://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png"
+                    alt="PartlyCloudy"
                     class="float-left"
+                    width="42"
                   />
                   <div class="float-left">
                     <strong id="temperature">12</strong>
